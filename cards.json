@@ -1,38 +1,22 @@
 [
   {
-    "Word": "Name",
-    "Definition": "Mary",
-    "Score": 1,
-    "Streak": 1,
-    "Level": 1,
-    "last_reviewed": 1
+    "Word": "Mary",
+    "Definition": "User's Name",
+    "Level": 2
   },
   {
-    "Word": "Nickname",
-    "Definition": "ikay",
-    "Score": 0,
-    "Streak": 3,
+    "Word": "Ikay",
+    "Definition": "User's Nickname",
+    "Level": 2
+  },
+  {
+    "Word": "Advanced Computer Programming",
+    "Definition": "Subject",
     "Level": 1
   },
   {
-    "Word": "Province",
-    "Definition": "Laguna",
-    "Score": 1,
-    "Streak": 4,
-    "Level": 5
-  },
-  {
-    "Word": "Cat",
-    "Definition": "Baibe",
-    "Score": 0,
-    "Streak": 5,
-    "Level": 1
-  },
-  {
-    "Word": "Dog",
-    "Definition": "Tomi",
-    "Score": 1,
-    "Streak": 0,
-    "Level": 4
+    "Word": "BSU - TNEU",
+    "Definition": "School",
+    "Level": 2
   }
 ]
