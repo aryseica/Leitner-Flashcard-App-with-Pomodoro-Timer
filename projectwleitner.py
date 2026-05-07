@@ -69,12 +69,12 @@ class FlashcardApp(tk.Tk):
         for card in self.cards:
             # Display level to show mastery progress
             lvl = card.get('Level', 1)
-            self.listbox.insert(tk.END, f"Lvl {lvl} | {card['Word']}")
+            self.listbox.insert(tk.END, f"Lvl {lvl} | {card['Definition']}")
 
     def add_card(self):
-        word = simpledialog.askstring("New card", "Word:")
+        word = simpledialog.askstring("New Card:", f"\n\n{' '*20}Word:{' '*20}\n\n")
         if not word: return
-        definition = simpledialog.askstring("New card", f"Definition for {word}:")
+        definition = simpledialog.askstring("New Card:", f"\n\n{' '*20}Definition:{' '*20}\n\n")
         if definition is None: return
         # Cards start at Level 1 in the Leitner System
         self.cards.append({"Word": word, "Definition": definition, "Level": 1})
@@ -103,12 +103,12 @@ class FlashcardApp(tk.Tk):
         for card in sorted_cards:
             if 'Level' not in card: card['Level'] = 1
             
-            # Prompt asks for the definition of the word
-            answer = simpledialog.askstring("Review", f"\n[Level {card['Level']}]\n\n{' '*20}Define: {card['Word']}{' '*20}\n\n")
+            # Prompt asks for the terminology
+            answer = simpledialog.askstring("Review", f"\n[Level {card['Level']}]\n\n{' '*20} {card['Definition']}{' '*20}\n\n")
             if answer is None: break
             
             actual_reviewed += 1
-            if answer.strip().lower() == card["Definition"].lower():
+            if answer.strip().lower() == card["Word"].lower():
                 # Success: Promote to next level (Max 5)
                 card['Level'] = min(card['Level'] + 1, 5)
                 total_score += 1
@@ -116,7 +116,7 @@ class FlashcardApp(tk.Tk):
             else:
                 # Failure: Drop back to Level 1
                 card['Level'] = 1
-                messagebox.showinfo("Wrong", f"Dropped to Level 1!\nCorrect: {card['Definition']}")
+                messagebox.showinfo("Wrong", f"Dropped to Level 1!\nCorrect: {card['Word']}")
         
         # After review, update the main listbox to show new levels
         self.update_listbox()
